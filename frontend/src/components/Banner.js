@@ -68,6 +68,24 @@ export default function Banner(){
                                         Mestre
                                     </label>
                                 </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">UF</label>
+                                    <select class="custom-select custom-select-lg">
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">  
+                            <label for="exampleInputEmail1">Cidade</label>
+                                <select class="custom-select custom-select-lg">
+                                    <option value="1" selected>One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
                             </div>    
                             <div class="col-sm-12"> 
                                 <div class="form-group">
