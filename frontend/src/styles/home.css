@@ -32,3 +32,65 @@
 .btns img{
     width:2rem
 }
+
+.mestre-main{
+    padding-top:5%;
+    margin-bottom:20%
+}
+
+.painel{
+    margin-top:5%;
+    color:#6c757d;
+    
+}
+
+.card .mesa{
+    
+    width:21rem;
+    margin:10px;
+    display:flex;
+    justify-content: center;
+    text-align: center
+}
+
+.minhasMesas{
+    border: 1px solid #CCCCCC;
+    padding:10% 10% 10% 10%
+}
+
+.cards{
+    width:100px;
+    margin-right:10px
+}
+
+.r{
+    margin-bottom: 2%;
+    max-height: 20rem;
+}
+
+.shadowMesa{
+    background-color: rgba(0, 0, 0, 0.5);
+    position:absolute;
+    width:90%;
+    height: 35%;
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+
+.shadowMesa button{
+    color:#ffffff !important;
+    margin-right:10px
+}
+
+.shadowMesa:hover{
+    opacity: 1;
+    transition: 0.5s ease;
+}
+
+#cardMatchs{
+    margin-top:5%;
+    width:25rem
+}
