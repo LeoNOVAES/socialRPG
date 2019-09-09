@@ -4,10 +4,10 @@ import dom from "react-dom";
 import { Button, Jumbotron } from "reactstrap";
 import Banner from "../components/Banner"
 
-export default function Login(){
+export default function Login({ history }){
     return(
         <div>
-            <Banner />
+            <Banner history={history} />
         </div>
     );
 }

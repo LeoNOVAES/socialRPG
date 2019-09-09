@@ -118,12 +118,12 @@ function Player(){
                             <img class="card-img-top" src={banner} alt="Card image cap"/>
                             <div class="card-body">
                                 <h4>Title</h4>
-                                <p class="card-text text-dark">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text text-dark">Some quick example text to build on the card title and make up the bulk of the card</p>
                             </div>
                             <div class="card-footer">
                                 <div class="btns">
-                                    <button ><img src={like}/></button>
-                                    <button     ><img src={dislike}/></button>
+                                    <button><img src={like}/></button>
+                                    <button><img src={dislike}/></button>
                                 </div>
                             </div>
                         </div>
