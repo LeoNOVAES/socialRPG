@@ -22,7 +22,7 @@ export default function Home() {
                             <img class="card-img-top" src={banner} alt="Card image cap"/>
                             <div class="card-body">
                                 <h4>Title</h4>
-                                <p class="card-text text-dark">Some quick example text to build on the card title and make up the bulk of the card'</p>
+                                <p class="card-text text-dark">Some quick example text to build on the card title and make up the bulk of the card</p>
                             </div>
                             <div class="card-footer">
                                 <div class="btns">

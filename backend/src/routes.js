@@ -24,6 +24,7 @@ router.get("/api/recuse", Like.recuseMember);
 router.get("/api/remove", Like.removeMember);
 
 //dislike
-routes.post("/api/dislike", Dislike.store);
+router.post("/api/dislike", Dislike.store);
+
 
 module.exports = router;

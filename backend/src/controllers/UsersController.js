@@ -18,23 +18,27 @@ module.exports = {
     },
 
     async auth(req,res) {
-        const {email, password} = req.body;
+        try{
+            const {email, password} = req.body;
 
-        const user = await Users.findOne({ email:email, password:password });
-        if(!user) return res.status(403).json("Email ou senhas incorretos!");
-        
-        const token = jwt.sign({ id:user._id }, secret,{
-            expiresIn: 86400
-        });
+            const user = await Users.findOne({ email:email, password:password });
+            if(!user) return res.status(400).json({data:"Email ou senha incorretos!"});
+            
+            const token = jwt.sign({ id:user._id }, secret,{
+                expiresIn: 86400
+            });
 
-        return res.status(202).json({ token:token });
+            return res.status(202).json({ token:token, user:user });
+        }catch(e){
+            return res.status(403).json({data:"Email ou senha incorretos!" });
+        }
     },
 
     async store(req,res){
         const data  = req.body;
         const { avatar } = req.files;
         const exists = await Users.findOne({ email:data.email });
-        
+        console.log(req.headers);
         if (exists) return res.status(400).json("Usuario ja existe");
         
         const date = new Date();
