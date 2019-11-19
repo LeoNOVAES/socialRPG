@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="container">
+    <div class="card">
+      <div class="card-header">
+        Minhas Mesas
+      </div>
+      <div *ngIf="table" class="card-body">
+        <div class="row">
+            <div class="col-sm-12 title">
+                <h2>{{ table.name }}</h2>
+            </div>
+            <div class="col-sm-12 content-image" style="margin-bottom: 20px">
+              <img width="400px" height="300px" src="http://localhost:3333/api/image/{{ table.avatar }}" />
+              <p>{{ table.bio }}</p>
+            </div>
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-header  bg-info text-white">
+                    pedidos
+                </div>
+                <div  class="card-body">
+                    <div *ngIf="guests.length > 0; else empty">
+                    <div class="line-request" *ngFor="let guest of guests">
+                        <p>{{ guest.name}}</p>
+                        <div>
+                            <button class="btn btn-success" (click)="acceptMember(guest._id)" style="margin-right: 10px">aceitar</button>
+                            <button class="btn btn-danger" (click)="recuseMember(guest._id)" >excluir</button>
+                        </div>
+                    </div>
+                    </div>
+                    <ng-template #empty>
+                      <p class="text-secondary" style="text-align: center">Nao existem pedidos no momento!</p>
+                    </ng-template> 
+                </div>
+              </div>
+            </div>
+        </div>    
+      </div>
+    </div>
+    <div style="margin-top:40px">
+      <h3>Convidados confirmados</h3>  
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Biografia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let member of members">
+            <td>{{ member.name }}</td>
+            <td>{{ member.bio }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

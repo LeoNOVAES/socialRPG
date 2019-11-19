@@ -5,6 +5,8 @@ const TableController = require("./controllers/TableController");
 const Like = require("./controllers/LikeController");
 const Dislike = require("./controllers/DislikesController");
 
+router.get('/api/image/:image', TableController.indexImage);
+
 //users
 router.post('/api/user', UsersController.store);
 router.post('/api/auth', UsersController.auth);
@@ -15,6 +17,9 @@ router.get('/api/users/:state', UsersController.indexOfLike);
 //tables
 router.post('/api/table', TableController.store);
 router.get('/api/tables', TableController.indexOfState);
+router.get('/api/tables/requests', TableController.indexOfRequests);
+router.get('/api/tables/mestre', TableController.indexOfMestre);
+router.get('/api/table', TableController.indexTable);
 router.delete("/api/table", TableController.delete);
 
 //like

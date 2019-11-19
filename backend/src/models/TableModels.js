@@ -10,6 +10,10 @@ const TableSchema = new Schema({
         ref:'Users'
     },
     bio:String,
+    limit:{
+        type:Number,
+        required:true
+    },
     avatar:{
         type:String,
         required:true

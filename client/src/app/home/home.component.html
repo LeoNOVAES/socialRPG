@@ -1,0 +1,5 @@
+<app-header></app-header>
+<div *ngIf="isloading">
+    <app-user *ngIf="!user.mestre"></app-user>
+    <app-mestre *ngIf="user.mestre"></app-mestre>
+</div>

@@ -1,0 +1,27 @@
+<div *ngIf="tables">
+<div class="logoContain">
+  <img src="/assets/fotos/logo.png" />
+</div>
+<div class="main-container container" *ngIf="tables.length > 0; else empty" >
+  <div class="row">
+    <div class="col-sm-4" style="margin-bottom:20px" *ngFor="let table of tables">
+      <div class="card main">
+        <img class="card-img-top" height="220px" src="http://localhost:3333/api/image/{{ table.avatar }}" alt="Card image cap" />
+        <div class="card-body">
+          <h4>{{ table.name }}</h4>
+          <p class="card-text text-dark">{{ table.bio }}</p>
+        </div>
+        <div class="card-footer">
+          <div class="btns">
+            <button style="cursor: pointer;" (click)="handlerLike(table._id)" ><img src="/assets/fotos/like.svg" /></button>
+            <button style="cursor: pointer;" (click)="handlerDislike(table._id)"><img src="/assets/fotos/dislike.svg" /></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template  #empty>
+  <p class="empty">Ainda nao existem mesas :(</p>
+</ng-template>
+</div>

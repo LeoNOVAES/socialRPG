@@ -1,0 +1,8 @@
+.body{
+    position: relative;
+    bottom: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

@@ -1,0 +1,38 @@
+.logoContain {
+  display: flex;
+  justify-content: center
+}
+
+.main {
+  max-width: 18rem;
+  padding-bottom: 5%
+}
+
+.main-container {
+  padding-top: 5%;
+
+}
+
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.btns button {
+  background-color: transparent;
+  border-radius: 60px;
+  width: 30%;
+  height: 80px;
+  border: 1px solid #ffffff !important
+}
+
+.btns img {
+  width: 2rem
+}
+
+.empty{
+  text-align: center;
+}

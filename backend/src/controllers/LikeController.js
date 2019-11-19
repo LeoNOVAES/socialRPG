@@ -11,6 +11,11 @@ module.exports = {
             if (!table) return res.status(400).json("mesa nao existe");
             if(table.estado != user.estado) return res.status(400).json("Estados diferentes nao dao match!");
 
+            if(user.likes.includes(table._id) || table.requests.includes(user._id)){
+                console.log("ja deu like");
+                return res.status(403).json("like ja existe");
+            }
+
             user.likes.push(table._id);
             await user.save();
 

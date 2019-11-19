@@ -1,0 +1,37 @@
+.line-request{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #cccccc;
+    padding:10px;
+    margin: 13px;
+    border-radius: 5px
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+.title button{
+    color:#ffffff;
+    margin-bottom: 20px
+}
+
+.content-image{
+    display: flex;
+    flex-direction: row;
+    justify-content: start
+}
+
+.content-image p{
+    margin-left: 20px;
+     width: 28em;
+     
+     word-wrap: break-word;
+}
+
+.content-image img{
+    max-width: 500px
+}

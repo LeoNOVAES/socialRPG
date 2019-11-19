@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-light text-white bg-light">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar"
+      aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="textoNavbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/home">Home<span class="sr-only">(Página atual)</span></a>
+        </li>
+      </ul>
+      <span (click)="logoff()" style="cursor: pointer;"  class="navbar-text">
+        SAIR
+      </span>
+    </div>
+</nav>

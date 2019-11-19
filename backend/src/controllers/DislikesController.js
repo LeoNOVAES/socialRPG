@@ -1,5 +1,5 @@
-const Users = require("./UsersController");
-const Tables = require("./TableController");
+const Users = require("../models/UsersModel");
+const Tables = require("../models/TableModels");
 
 module.exports = {
     async store(req, res) {
@@ -7,8 +7,8 @@ module.exports = {
             id,
             mesa
         } = req.headers;
-
-        const user = await User.findById(id);
+        console.log(id);
+        const user = await Users.findById(id);
         const tableExists = await Tables.findById(mesa);
         if (!tableExists) return res.status(400).json("mesa nao existe");
 

@@ -18,10 +18,12 @@ module.exports = {
     },
 
     async auth(req,res) {
+        
         try{
             const {email, password} = req.body;
-
+            console.log(email, password)
             const user = await Users.findOne({ email:email, password:password });
+            console.log(user)
             if(!user) return res.status(400).json({data:"Email ou senha incorretos!"});
             
             const token = jwt.sign({ id:user._id }, secret,{

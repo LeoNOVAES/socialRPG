@@ -1,0 +1,72 @@
+       <div class="container mestre-main">
+          <div class="logoContain">
+            <img src="/assets/fotos/logo.png" />
+          </div>
+          <button *ngIf="!showForm" class="btn btn-success" style="margin-bottom: 20px" (click)="showForm=true">Deseja adicionar alguma mesa?</button>
+          <button *ngIf="showForm" (click)="showForm = false" class="btn btn-defalut" >X</button>
+          <form novalidate *ngIf="showForm"  [formGroup]="formTable" (submit)="handlerRegister()" style="margin-bottom:10%">
+            <div class="custom-file form-group">
+              <input type="file" (change)="changeFile($event)" class="custom-file-input" id="validatedCustomFile" required />
+              <label class="custom-file-label" for="validatedCustomFile">Adicione uma ilustração para a
+                mesa(opcional)</label>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nome</label>
+              <input type="text" formControlName="name" class="form-control" id="nome" placeholder="Nome" />
+            </div>
+            <div class="form-group">
+              <label for="qtdPlayers">Quantidade de Jogadores</label>
+              <input type="number" formControlName="limite"  class="form-control" placeholder="Quantidade de Jogadores" />
+            </div>
+            <div class="form-group">
+              <label>UF</label>
+              <select class="custom-select custom-select-lg" formControlName="estado">
+                <option value="DF" selected>DF</option>
+                <option value="SP">SP</option>
+                <option value="MG">MG</option>
+                <option value="RJ">RJ</option>
+                <option value="AC">AC</option>
+                <option value="GO">GO</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="descricao">Descrição da Mesa</label>
+              <textarea class="form-control" formControlName="bio" id="descricao" rows="3"></textarea>
+            </div>
+            <button class="btn btn-secondary" type="submit"> Adicionar Mesa</button>
+          </form>
+          <div >
+            <div className="jumbotron painel" style="padding-bottom:5%">
+              <h1>Painel do Mestre</h1>
+            </div>
+            <div class="card">
+              <div class="card-header" >
+                Minhas Mesas
+              </div>
+              <div class="container-fluid" *ngIf="tables.length > 0; else empty">
+                <div class="card-body">
+                  <div class="card-group">
+                    <div class="row">
+                      <div class="card r col-sm-4" *ngFor="let table of tables">
+                        <div class="shadowMesa"><button (click)="handlerDelete(table._id)" class="btn btn-danger">DELETAR</button><button
+                            class="btn btn-warning" [routerLink]="['/table', table._id]" >Ver Pedidos</button></div>
+                        <img class="card-img-top" src="http://localhost:3333/api/image/{{table.avatar}}" height="50%" alt="Card image cap" />
+                        <div class="card-body">
+                          <h5 class="card-title">{{ table.name }}</h5>
+                          <p class="card-text text-dark">{{ table.bio }}</p>
+                        </div>
+                        <div class="card-footer">
+                          <small
+                            class="text-muted">{{table.createdAt }}</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ng-template #empty>
+                <p style="text-align: center; color: #cccccc; padding:10px" >Aind nao existem mesas :(</p>
+              </ng-template>
+            </div>
+          </div>
+        </div>
