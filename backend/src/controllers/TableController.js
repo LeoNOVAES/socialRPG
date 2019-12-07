@@ -67,7 +67,7 @@ module.exports = {
                 }
                 return e;
             });
-
+            console.log(state)
             return res.status(200).json(tables);
         }catch($e){
             console.log($e)
@@ -159,5 +159,33 @@ module.exports = {
         }catch($e){
             return res.status(400).json("erro inesperado");
         }
+    },
+
+    async getTableByGuest(req,res){
+        try{
+            const { id } = req.params;
+
+            const table = await Table.find({
+                $and:[
+                    { members:{ $in:id } }
+                ]
+            });
+
+            if(!table.length > 0)
+            
+            return res.status(404).json("not found")
+            return res.status(200).json(table);
+
+        } catch($e){
+            console.log($e)
+            return res.status(400).json($e);
+        }
+    },
+
+    async getMembers(req,res){
+        const {id} = req.params;
+        const { members } = await Table.findById(id);
+        const users = await User.find({ _id:members });
+        res.status(200).json({ users })
     }
 }

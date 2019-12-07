@@ -8,6 +8,7 @@ import { ContentCadastroComponent} from "./login/content-cadastro/content-cadast
 import { HomeComponent } from "./home/home.component";
 import { RouterGuard } from "./app.router-guard"
 import { TableDetailsComponent } from './home/mestre/table-details/table-details.component';
+import { TablesComponent } from './home/user/tables/tables.component';
 
 const index = localStorage.getItem('event_token') ? HomeComponent : LoginComponent;
 
@@ -20,9 +21,10 @@ const routes: Routes = [
     { path: "cadastro", component: ContentCadastroComponent }
   ]},
   { path: "home", component: HomeComponent, canActivate: [RouterGuard]},
-  { path: "table/:id", component: TableDetailsComponent, canActivate: [RouterGuard] }
-]
-
+  { path: "table/:id", component: TableDetailsComponent, canActivate: [RouterGuard] },
+  { path: "tables", component:TablesComponent, canActivate:[RouterGuard]}
+] 
+ 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

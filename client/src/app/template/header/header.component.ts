@@ -10,7 +10,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(private route: Router) { }
 
+  public type: Boolean;
+
   ngOnInit() {
+    this.type = localStorage.getItem('type') == 'usuario' ? false : true;
+    console.log(this.type)
+    
   }
 
   logoff(){

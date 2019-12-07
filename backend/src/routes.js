@@ -20,6 +20,8 @@ router.get('/api/tables', TableController.indexOfState);
 router.get('/api/tables/requests', TableController.indexOfRequests);
 router.get('/api/tables/mestre', TableController.indexOfMestre);
 router.get('/api/table', TableController.indexTable);
+router.get('/api/table/:id', TableController.getTableByGuest);
+router.get('/api/table/members/:id', TableController.getMembers);
 router.delete("/api/table", TableController.delete);
 
 //like

@@ -15,7 +15,7 @@ export class UserService {
         const header: Headers = new Headers({
             'Authorization': localStorage.getItem("event_token"),
             'iduser':localStorage.getItem('user'),
-            'state': 'DF'
+            'state': localStorage.getItem('state')
         });
 
         return this.http.get(
@@ -65,5 +65,38 @@ export class UserService {
                     return res.json()
                 })
             )
+    }
+
+    public getMyTables(id: String){
+        const header: Headers = new Headers({
+            'Authorization': localStorage.getItem("event_token"),
+            'id': localStorage.getItem('user')            
+        })
+
+        return this.http.get(
+            `${URL}/table/${id}`,
+            { headers: header }
+        ).pipe(
+            map((res)=>{
+                return res;
+            })
+        )
+            
+    }
+
+    public getMember(id){
+        const header: Headers = new Headers({
+            'Authorization': localStorage.getItem("event_token"),
+            'id': localStorage.getItem('user')
+        })
+
+        return this.http.get(
+            `${URL}/table/members/${id}`,
+            { headers: header }
+        ).pipe(
+            map((res) => {
+                return res;
+            })
+        )
     }
 }

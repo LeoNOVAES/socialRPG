@@ -37,6 +37,8 @@ export class ContentLoginComponent implements OnInit {
         const user = res.json();
         localStorage.setItem("event_token",user.token);
         localStorage.setItem("user",user.user._id);
+        localStorage.setItem("state", user.user.estado)
+        localStorage.setItem("type", user.user.mestre ? "mestre" : "usuario");
         this.route.navigate(["/home"]);
       },
       error => {
@@ -49,5 +51,4 @@ export class ContentLoginComponent implements OnInit {
       }
     )
   }
-
 }

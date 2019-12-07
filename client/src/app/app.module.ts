@@ -17,6 +17,7 @@ import { MestreComponent } from './home/mestre/mestre.component'
 import { RouterGuard } from './app.router-guard';
 import { UserComponent } from './home/user/user.component';
 import { TableDetailsComponent } from './home/mestre/table-details/table-details.component';
+import { TablesComponent } from './home/user/tables/tables.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TableDetailsComponent } from './home/mestre/table-details/table-details
     HeaderComponent,
     MestreComponent,
     UserComponent,
-    TableDetailsComponent
+    TableDetailsComponent,
+    TablesComponent
   ],
   imports: [
     SweetAlert2Module.forRoot(),

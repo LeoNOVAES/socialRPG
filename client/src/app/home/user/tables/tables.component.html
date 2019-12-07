@@ -1,0 +1,52 @@
+<app-header></app-header>
+<div *ngIf="tables">
+    <div class="logoContain">
+        <img src="/assets/fotos/logo.png" />
+    </div>
+    <div class="container-fluid" style="margin-left: 200px;">
+        <h3>Mesas Confirmadas</h3>
+    </div>
+    <div class="main-container container" *ngIf="tables.length > 0; else empty">
+        <div class="row">
+            <div class="col-sm-4" style="margin-bottom:20px" *ngFor="let table of tables">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="http://localhost:3333/api/image/{{ table.avatar }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ table.name }}</h5>
+                                    <p class="card-text">{{ table.bio }}</p>
+                                    <button (click)="isMember = false" *ngIf="isMember" class="btn btn-primary">X</button>
+                                    <button (click)="showMembers(table._id)" *ngIf="!isMember" class="btn btn-primary">Mostrar Participantes</button>
+                                    <div *ngIf="isMember" style="margin-top:10px; margin-bottom:5px" >
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Nome</th>
+                                                    <th scope="col">email</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let member of members">
+                                                    <td>{{ member.name }}</td>
+                                                    <td>{{ member.email }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                
+                                </div>
+                                
+                                <div class="card-footer">
+                                    {{ table.createdAt | date }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #empty>
+        <p class="empty">Ainda nao existem mesas :(</p>
+    </ng-template>
+</div>
